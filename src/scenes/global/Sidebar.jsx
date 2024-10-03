@@ -7,11 +7,13 @@ import { tokens } from "../../theme";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import StorageRoundedIcon from "@mui/icons-material/StorageRounded";
 import PieChartRoundedIcon from "@mui/icons-material/PieChartRounded";
-import PeopleOutlineRoundedIcon from '@mui/icons-material/PeopleOutlineRounded';
+import PeopleOutlineRoundedIcon from "@mui/icons-material/PeopleOutlineRounded";
+import BarChartRoundedIcon from "@mui/icons-material/BarChartRounded";
 import HistoryRoundedIcon from "@mui/icons-material/HistoryRounded";
-import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
+import SettingsRoundedIcon from "@mui/icons-material/SettingsRounded";
+import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded";
-import Inventory2RoundedIcon from '@mui/icons-material/Inventory2Rounded';
+import Inventory2RoundedIcon from "@mui/icons-material/Inventory2Rounded";
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
@@ -36,12 +38,6 @@ const Sidebar = () => {
   const colors = tokens(theme.palette.mode);
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [selected, setSelected] = useState("Dashboard");
-  const [open, setOpen] = useState(false);
-
-  const handleOpen = () => {
-    setOpen(true);
-  };
-
 
   return (
     <Box
@@ -56,14 +52,11 @@ const Sidebar = () => {
           padding: "5px 35px 5px 20px !important",
         },
         "& .pro-inner-item:hover": {
-          backgroundColor: "#8280FF !important",
-          color: "white !important",
-          borderRadius: "20px !important",
+          backgroundColor: "#8280FF  !important",
         },
         "& .pro-menu-item.active": {
           backgroundColor: "#8280FF !important",
           color: "white !important",
-          borderRadius: "20px !important",
         },
       }}
     >
@@ -107,27 +100,48 @@ const Sidebar = () => {
             />
             <Item
               title="Articles"
-              to=""
+              to="/Articles"
               icon={<StorageRoundedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
               title="Archive"
-              to="/History"
+              to="/Archive"
               icon={<Inventory2RoundedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
-            <Box onClick={handleOpen}>
-              <Item
-                title="Se Déconnecter"
-                to="#"
-                icon={<LogoutRoundedIcon />}
-                selected={selected}
-                setSelected={setSelected}
-              />
-            </Box>
+
+            <Item
+              title="PieChart"
+              to="/PieChart"
+              icon={<PieChartRoundedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="BarChart"
+              to="/BarChartRounded"
+              icon={<BarChartRoundedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Settings"
+              to="#"
+              icon={<SettingsRoundedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+
+            <Item
+              title="Logout"
+              to="#"
+              icon={<LogoutRoundedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
           </Box>
         </Menu>
       </ProSidebar>
