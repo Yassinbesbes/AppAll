@@ -1,35 +1,40 @@
 import { useState } from "react";
 import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar";
-import { Box, IconButton, Typography, useTheme } from "@mui/material";
+import { Box, IconButton, Typography, useTheme, Divider } from "@mui/material";
 import { Link } from "react-router-dom";
 import "react-pro-sidebar/dist/css/styles.css";
 import { tokens } from "../../theme";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import StorageRoundedIcon from "@mui/icons-material/StorageRounded";
 import PieChartRoundedIcon from "@mui/icons-material/PieChartRounded";
+import ArticleRoundedIcon from '@mui/icons-material/ArticleRounded';
 import PeopleOutlineRoundedIcon from "@mui/icons-material/PeopleOutlineRounded";
 import BarChartRoundedIcon from "@mui/icons-material/BarChartRounded";
-import HistoryRoundedIcon from "@mui/icons-material/HistoryRounded";
 import SettingsRoundedIcon from "@mui/icons-material/SettingsRounded";
 import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded";
 import Inventory2RoundedIcon from "@mui/icons-material/Inventory2Rounded";
+
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+
   return (
-    <MenuItem
-      active={selected === title}
-      style={{
-        color: colors.grey[100],
-        marginBottom: "10px",
-      }}
-      onClick={() => setSelected(title)}
-      icon={icon}
-    >
-      <Typography>{title}</Typography>
-      <Link to={to} />
-    </MenuItem>
+    <Box>
+      <MenuItem
+        active={selected === title}
+        style={{
+          color: colors.grey[100],
+          marginBottom: "8px",
+          width:"90%",
+        }}
+        onClick={() => setSelected(title)}
+        icon={icon}
+      >
+        <Typography>{title}</Typography>
+        <Link to={to} />
+      </MenuItem>
+    </Box>
   );
 };
 
@@ -44,19 +49,23 @@ const Sidebar = () => {
       sx={{
         "& .pro-sidebar-inner": {
           background: `${colors.primary[400]} !important`,
+          borderRight: `0.5px solid #E0E0E0 !important`,
         },
         "& .pro-icon-wrapper": {
           backgroundColor: "transparent !important",
         },
         "& .pro-inner-item": {
-          padding: "5px 35px 5px 20px !important",
+          padding: "5px 35px 5px 15px !important",
         },
         "& .pro-inner-item:hover": {
           backgroundColor: "#8280FF  !important",
+          color: "white !important",
+          borderRadius: "8px",
         },
         "& .pro-menu-item.active": {
           backgroundColor: "#8280FF !important",
           color: "white !important",
+          borderRadius: "8px",
         },
       }}
     >
@@ -67,22 +76,22 @@ const Sidebar = () => {
             onClick={() => setIsCollapsed(!isCollapsed)}
             icon={isCollapsed ? <MenuOutlinedIcon /> : undefined}
             style={{
-              margin: "4px 0 20px 0",
+              margin: "10px 0 15px 0",
               color: colors.grey[100],
             }}
           >
             {!isCollapsed && (
-              <Box display="flex" alignItems="center" ml="15px">
+              <Box display="flex" alignItems="center" ml="10px">
                 <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
                   <MenuOutlinedIcon />
                 </IconButton>
-                <Typography variant="h3" color={colors.grey[100]}>
-                  Dashboard
-                </Typography>
+
+                <Typography variant="h3" color={colors.grey[100]}></Typography>
               </Box>
             )}
           </MenuItem>
 
+          {/* Sidebar Items */}
           <Box paddingLeft={isCollapsed ? undefined : "5.5%"}>
             <Item
               title="Dashboard"
@@ -101,7 +110,7 @@ const Sidebar = () => {
             <Item
               title="Articles"
               to="/Articles"
-              icon={<StorageRoundedIcon />}
+              icon={<ArticleRoundedIcon/>}
               selected={selected}
               setSelected={setSelected}
             />
@@ -112,7 +121,7 @@ const Sidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
-
+            <Divider />
             <Item
               title="PieChart"
               to="/PieChart"
@@ -122,11 +131,13 @@ const Sidebar = () => {
             />
             <Item
               title="BarChart"
-              to="/BarChartRounded"
+              to="/BarChart"
               icon={<BarChartRoundedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
+            
+            <Divider />
             <Item
               title="Settings"
               to="#"
@@ -134,7 +145,6 @@ const Sidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
-
             <Item
               title="Logout"
               to="#"
