@@ -1,21 +1,36 @@
 import React from "react";
-import { Box, Typography, Card, CardContent, Icon, useTheme } from "@mui/material";
+import { Box, Typography, Card, CardContent, useTheme } from "@mui/material";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward"; // For percentage arrow
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward"; // For percentage arrow
-import PeopleIcon from "@mui/icons-material/People"; // Example icon for doctors
 
-const Cards = ({ title, number, percentage, icon, isIncrease }) => {
+const Cards = ({
+  title,
+  number,
+  percentage,
+  backgroundColor,
+  icon,
+  isIncrease,
+}) => {
   const theme = useTheme();
-  const percentageColor = isIncrease ? theme.palette.success.main : theme.palette.error.main;
+  const percentageColor = isIncrease
+    ? theme.palette.success.main
+    : theme.palette.error.main;
 
   return (
-    <Card sx={{ minWidth: 275, borderRadius: "15px", boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)" }}>
+    <Card
+      sx={{
+        width: 300, // Adjust this value as needed for width
+        height: 150, // Ensure the height and width are consistent
+        borderRadius: "15px", // Optional: keeps the rounded corners
+        boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
+      }}
+    >
       <CardContent>
-        {/* Top Section: Title, Number, Icon */}
+        {/* Top Section: Title, Number, Image */}
         <Box display="flex" justifyContent="space-between" alignItems="center">
           {/* Title and Number */}
           <Box>
-            <Typography variant="body2" color="textSecondary">
+            <Typography variant="h4" color="textSecondary">
               {title}
             </Typography>
             <Typography variant="h4" sx={{ fontWeight: "bold" }}>
@@ -23,17 +38,27 @@ const Cards = ({ title, number, percentage, icon, isIncrease }) => {
             </Typography>
           </Box>
 
-          {/* Icon in a rounded background */}
+          {/* Image in a rectangle with dynamic background color */}
           <Box
             sx={{
-              backgroundColor: theme.palette.primary.light,
-              borderRadius: "50%",
-              padding: "10px",
+              backgroundColor: backgroundColor || theme.palette.primary.light,
+              width: 60,
+              height: 60,
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              borderRadius: "10px", // Rounded rectangle corners
+              position: "relative", // Ensure the image is positioned correctly
+              overflow: "hidden", // Ensures image fits inside the box
             }}
           >
-            <Icon sx={{ fontSize: 40, color: theme.palette.primary.main }}>
-              {icon}
-            </Icon>
+            <img
+              src={icon} // URL of the image
+              alt="icon"
+              style={{
+                position: "absolute", // Makes sure the image stays centered
+              }}
+            />
           </Box>
         </Box>
 

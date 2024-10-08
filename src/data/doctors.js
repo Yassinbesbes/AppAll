@@ -6,6 +6,8 @@ const doctors = [
     email: "johndoe@example.com",
     phone: "+1234567890",
     specialization: "Allergist",
+    accountCreated: "2023-01-15",
+    isActive: true,
   },
   {
     id: 2,
@@ -14,6 +16,8 @@ const doctors = [
     email: "emmasmith@example.com",
     phone: "+1987654321",
     specialization: "Immunologist",
+    accountCreatedAt: "2023-02-10",
+    isActive: true,
   },
   {
     id: 3,
@@ -22,6 +26,8 @@ const doctors = [
     email: "michaeljohnson@example.com",
     phone: "+1543219876",
     specialization: "Pulmonologist",
+    accountCreatedAt: "2023-03-05",
+    isActive: true,
   },
   {
     id: 4,
@@ -30,6 +36,8 @@ const doctors = [
     email: "sophiabrown@example.com",
     phone: "+1478523690",
     specialization: "Pediatric Allergist",
+    accountCreatedAt: "2023-04-20",
+    isActive: true,
   },
   {
     id: 5,
@@ -38,6 +46,8 @@ const doctors = [
     email: "williamgarcia@example.com",
     phone: "+1122334455",
     specialization: "Dermatologist (Allergy-Related)",
+    accountCreatedAt: "2023-05-12",
+    isActive: true,
   },
   {
     id: 6,
@@ -46,6 +56,8 @@ const doctors = [
     email: "oliviadavis@example.com",
     phone: "+1321456789",
     specialization: "Otolaryngologist (ENT Allergy)",
+    accountCreatedAt: "2023-06-01",
+    isActive: false,
   },
   {
     id: 7,
@@ -54,6 +66,8 @@ const doctors = [
     email: "jamesmartinez@example.com",
     phone: "+1765432198",
     specialization: "Rheumatologist (Autoimmune Allergy)",
+    accountCreatedAt: "2023-07-18",
+    isActive: false,
   },
   {
     id: 8,
@@ -62,6 +76,8 @@ const doctors = [
     email: "isabellalopez@example.com",
     phone: "+1987321456",
     specialization: "Allergy Nurse Specialist",
+    accountCreatedAt: "2023-08-25",
+    isActive: false,
   },
   {
     id: 9,
@@ -70,6 +86,8 @@ const doctors = [
     email: "ethanharris@example.com",
     phone: "+1549876543",
     specialization: "Respiratory Therapist",
+    accountCreatedAt: "2023-09-10",
+    isActive: false,
   },
   {
     id: 10,
@@ -78,6 +96,8 @@ const doctors = [
     email: "miaclark@example.com",
     phone: "+1765498765",
     specialization: "Nutritionist (Food Allergies)",
+    accountCreatedAt: "2023-10-02",
+    isActive: false,
   },
   {
     id: 11,
@@ -86,6 +106,8 @@ const doctors = [
     email: "liamwilson@example.com",
     phone: "+1987765432",
     specialization: "Pharmacist (Allergic Medications)",
+    accountCreatedAt: "2023-10-06",
+    isActive: false,
   },
 ];
 
