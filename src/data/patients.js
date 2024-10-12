@@ -8,6 +8,7 @@ const patients = [
     dateOfBirth: "1990-05-12",
     accountCreated: "2023-01-15",
     isActive: false,
+    gender: "female",
   },
   {
     id: 2,
@@ -18,6 +19,7 @@ const patients = [
     dateOfBirth: "1985-11-20",
     accountCreated: "2022-10-08",
     isActive: false,
+    gender: "male",
   },
   {
     id: 3,
@@ -28,6 +30,7 @@ const patients = [
     dateOfBirth: "1995-03-10",
     accountCreated: "2023-05-05",
     isActive: false,
+    gender: "female",
   },
   {
     id: 4,
@@ -38,6 +41,7 @@ const patients = [
     dateOfBirth: "1978-06-22",
     accountCreated: "2021-12-12",
     isActive: false,
+    gender: "male",
   },
   {
     id: 5,
@@ -48,6 +52,7 @@ const patients = [
     dateOfBirth: "2001-08-30",
     accountCreated: "2023-03-20",
     isActive: true,
+    gender: "female",
   },
   {
     id: 6,
@@ -58,6 +63,7 @@ const patients = [
     dateOfBirth: "1982-02-18",
     accountCreated: "2022-08-28",
     isActive: true,
+    gender: "male",
   },
   {
     id: 7,
@@ -68,6 +74,7 @@ const patients = [
     dateOfBirth: "1998-12-05",
     accountCreated: "2023-09-10",
     isActive: true,
+    gender: "female",
   },
   {
     id: 8,
@@ -78,6 +85,7 @@ const patients = [
     dateOfBirth: "1975-07-14",
     accountCreated: "2021-06-18",
     isActive: true,
+    gender: "male",
   },
 ];
 

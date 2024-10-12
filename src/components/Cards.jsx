@@ -19,9 +19,10 @@ const Cards = ({
   return (
     <Card
       sx={{
-        width: 300, // Adjust this value as needed for width
-        height: 150, // Ensure the height and width are consistent
-        borderRadius: "15px", // Optional: keeps the rounded corners
+        maxWidth: 340, // Changed to camelCase
+        width: "100%", // Added quotes for percentage value
+        height: 150,
+        borderRadius: "15px",
         boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
       }}
     >
@@ -47,16 +48,16 @@ const Cards = ({
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              borderRadius: "10px", // Rounded rectangle corners
-              position: "relative", // Ensure the image is positioned correctly
-              overflow: "hidden", // Ensures image fits inside the box
+              borderRadius: "10px",
+              position: "relative",
+              overflow: "hidden",
             }}
           >
             <img
-              src={icon} // URL of the image
+              src={icon}
               alt="icon"
               style={{
-                position: "absolute", // Makes sure the image stays centered
+                position: "absolute",
               }}
             />
           </Box>
