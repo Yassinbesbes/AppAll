@@ -1,4 +1,4 @@
-import { Box, useTheme, Grid } from "@mui/material";
+import { Box, Typography, useTheme, Grid } from "@mui/material";
 import { tokens } from "../../theme";
 import Header from "../../components/Header";
 import Cards from "../../components/Cards";
@@ -93,21 +93,33 @@ const Dashboard = () => {
               boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
               borderRadius: "20px",
               padding: "10px",
-              marginLeft:"10px"
+              marginLeft: "10px",
             }}
           >
+            <h4> </h4>
+
+            <Typography
+              variant="h4"
+              color={colors.grey[100]}
+              fontWeight="bold"
+              sx={{ m: "-5px 0 10px 0" }}
+            >
+              Statistiques Allergies
+            </Typography>
             <Grid>
-              <CardPieChart title="Cat Allergy Statistics" percentage="100" />
+              <CardPieChart title="Pollen Allergies" percentage={80} />
             </Grid>
-            <CardPieChart title="Cat Allergy Statistics" percentage="100" />
             <Grid>
-              <CardPieChart title="Cat Allergy Statistics" percentage="100" />
+              <CardPieChart title="Food Allergies" percentage={50} />
             </Grid>
             <Grid>
-              <CardPieChart title="Cat Allergy Statistics" percentage="100" />
+              <CardPieChart title="Dust Mite Allergies" percentage={20} />
             </Grid>
             <Grid>
-              <CardPieChart title="Cat Allergy Statistics" percentage="100" />
+              <CardPieChart title="Pet Allergies" percentage={5} />
+            </Grid>
+            <Grid>
+              <CardPieChart title="Mold Allergies" percentage={2} />
             </Grid>
           </Box>
         </Grid>
