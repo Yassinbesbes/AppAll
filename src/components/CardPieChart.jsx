@@ -1,8 +1,11 @@
 import React from "react";
-import { Box, Typography, Card, CardContent } from "@mui/material";
+import { Box, Typography, Card, CardContent, useTheme } from "@mui/material";
 import { PieChart, Pie, Cell, Tooltip, Label } from "recharts";
+import { tokens } from "../theme.js";
 
 const CardPieChart = ({ title, percentage }) => {
+  const theme = useTheme();
+  const colors = tokens(theme.palette.mode);
   const data = [
     { name: "Completed", value: percentage },
     { name: "Remaining", value: 100 - percentage },
@@ -16,12 +19,13 @@ const CardPieChart = ({ title, percentage }) => {
         width: "100%",
         height: 100,
         borderRadius: "15px",
-        marginBottom: "10px",
+        background: colors.primary[400],
+        marginBottom: "2px",
       }}
     >
       <CardContent>
         <Box display="flex" alignItems="center" justifyContent="space-between">
-          <Typography variant="h5" color="textSecondary">
+          <Typography variant="h5" color={colors.grey[100]}>
             {title}
           </Typography>
 
@@ -33,7 +37,6 @@ const CardPieChart = ({ title, percentage }) => {
                 cy={30}
                 innerRadius={20}
                 outerRadius={25}
-                fill="#8884d8"
                 paddingAngle={5}
                 dataKey="value"
               >
@@ -43,7 +46,6 @@ const CardPieChart = ({ title, percentage }) => {
                 <Label
                   value={`${percentage}%`}
                   position="center"
-                  fill="#000"
                   fontSize={12}
                 />
               </Pie>

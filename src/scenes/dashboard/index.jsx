@@ -25,10 +25,10 @@ const Dashboard = () => {
       <Box>
         <Header title="Dashboard" subtitle="" />
       </Box>
-      <Grid container xs={12} sm={6} md={12}>
-        <Grid container spacing={2} xs={12} sm={6} md={9}>
+      <Grid container xs={12} md={12}>
+        <Grid container spacing={2} xs={12} md={9}>
           {/* Total Doctors Card */}
-          <Grid item xs={12} sm={6} md={4}>
+          <Grid item xs={12} md={4}>
             <Cards
               title="Total Doctor's"
               number={totalDoctors}
@@ -87,25 +87,20 @@ const Dashboard = () => {
             </Box>
           </Grid>
         </Grid>
-        <Grid item spacing={2} xs={12} md={3}>
+        <Grid item  xs={12} md={3}>
           <Box
             style={{
               boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
+              background: colors.primary[400],
               borderRadius: "20px",
               padding: "10px",
               marginLeft: "10px",
             }}
           >
-            <h4> </h4>
-
-            <Typography
-              variant="h4"
-              color={colors.grey[100]}
-              fontWeight="bold"
-              sx={{ m: "-5px 0 10px 0" }}
-            >
+            <Typography variant="h4" color="textSecondary">
               Statistiques Allergies
             </Typography>
+
             <Grid>
               <CardPieChart title="Pollen Allergies" percentage={80} />
             </Grid>

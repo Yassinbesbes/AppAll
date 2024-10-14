@@ -2,6 +2,7 @@ import React from "react";
 import { Box, Typography, Card, CardContent, useTheme } from "@mui/material";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward"; // For percentage arrow
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward"; // For percentage arrow
+import { tokens } from "../theme.js";
 
 const Cards = ({
   title,
@@ -11,7 +12,8 @@ const Cards = ({
   icon,
   isIncrease,
 }) => {
-  const theme = useTheme();
+    const theme = useTheme();
+    const colors = tokens(theme.palette.mode);
   const percentageColor = isIncrease
     ? theme.palette.success.main
     : theme.palette.error.main;
@@ -23,6 +25,7 @@ const Cards = ({
         width: "100%", // Added quotes for percentage value
         height: 150,
         borderRadius: "15px",
+        background:colors.primary[400],
         boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
       }}
     >
