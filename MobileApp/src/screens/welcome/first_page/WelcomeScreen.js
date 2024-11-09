@@ -9,20 +9,19 @@ import {
 } from "react-native";
 import styles from "./styles.js";
 
-const WelcomeScreen = ({ navigation }) => {
+const WelcomeScreenfirstpage = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
       {/* Logo/Brand Section */}
       <View style={styles.brandContainer}>
         <Image
-          source={require("../../../assets/icon.png")}
+          source={require("../../../../assets/icon.png")}
           style={styles.logo}
         />
-
       </View>
       <Text style={styles.brandText}>
-      Aller<Text style={styles.brandHighlight}>Check</Text>
-        </Text>
+        Aller<Text style={styles.brandHighlight}>Check</Text>
+      </Text>
 
       <View style={styles.content}>
         {/* Buttons Section */}
@@ -31,21 +30,21 @@ const WelcomeScreen = ({ navigation }) => {
             style={styles.loginButton}
             onPress={() => navigation.navigate("Login")}
           >
-            <Text style={styles.loginButtonText}>Login</Text>
+            <Text style={styles.loginButtonText}>Continue as Doctor</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
             style={styles.registerButton}
-            onPress={() => navigation.navigate("Register")}
+            onPress={() => navigation.navigate("Login")}
           >
-            <Text style={styles.registerButtonText}>Register</Text>
+            <Text style={styles.registerButtonText}>Continue as Patient</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
             style={styles.guestButton}
             onPress={() => navigation.navigate("Guest")}
           >
-            <Text style={styles.guestButtonText}>Continue as a guest</Text>
+            <Text style={styles.guestButtonText}>Continue as a Guest</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -53,4 +52,4 @@ const WelcomeScreen = ({ navigation }) => {
   );
 };
 
-export default WelcomeScreen;
+export default WelcomeScreenfirstpage;

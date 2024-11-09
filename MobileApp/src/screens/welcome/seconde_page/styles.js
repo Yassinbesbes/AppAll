@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
-    justifyContent: "flex-end",
+    justifyContent: "center",
     paddingHorizontal: 20,
     backgroundColor: "#B490FC",
     borderTopRightRadius: 30,
@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    paddingVertical: 70,
+    paddingVertical: 50,
   },
   logo: {
     width: 100,
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     fontSize: 28,
     fontWeight: "600",
     textAlign: "center",
-    paddingVertical: 8,
+    paddingVertical: 20,
   },
   brandHighlight: {
     fontWeight: "400",

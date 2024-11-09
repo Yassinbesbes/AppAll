@@ -60,9 +60,9 @@ const SignUpScreen = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <TouchableOpacity style={styles.backButton}>
+      {/* <TouchableOpacity style={styles.backButton}>
         <Text style={styles.backButtonText}>{"<"}</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
 
       <View style={styles.content}>
         <Text style={styles.title}>Hello! Register to get started</Text>
