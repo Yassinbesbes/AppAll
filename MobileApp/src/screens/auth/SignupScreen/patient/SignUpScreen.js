@@ -7,9 +7,9 @@ import {
   SafeAreaView,
   Image,
 } from "react-native";
-import styles from './style'; // Importing styles from the new file
+import styles from "./style"; // Importing styles from the new file
 
-const SignUpScreen = () => {
+const SignUpScreenpatient = ({ navigation }) => {
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -65,7 +65,9 @@ const SignUpScreen = () => {
       </TouchableOpacity> */}
 
       <View style={styles.content}>
-        <Text style={styles.title}>Hello! Register to get started</Text>
+        <Text style={styles.title}>
+          Hello! Register As Patinet to get started
+        </Text>
 
         <View style={styles.inputContainer}>
           <TextInput
@@ -159,7 +161,10 @@ const SignUpScreen = () => {
 
         <View style={styles.loginContainer}>
           <Text style={styles.loginText}>Already have an account? </Text>
-          <TouchableOpacity onPress={() => console.log("Navigate to login")}>
+          <TouchableOpacity
+            style={styles.guestButton}
+            onPress={() => navigation.navigate("Loginpatient")}
+          >
             <Text style={styles.loginLink}>Login Now</Text>
           </TouchableOpacity>
         </View>
@@ -168,4 +173,4 @@ const SignUpScreen = () => {
   );
 };
 
-export default SignUpScreen;
+export default SignUpScreenpatient;

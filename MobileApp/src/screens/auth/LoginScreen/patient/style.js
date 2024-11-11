@@ -1,4 +1,3 @@
-// LoginScreenStyles.js
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
@@ -91,6 +90,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderWidth: 1,
     borderColor: '#ddd',
+  },
+  socialIcon: {
+    width: 24,
+    height: 24,
   },
   registerContainer: {
     flexDirection: 'row',

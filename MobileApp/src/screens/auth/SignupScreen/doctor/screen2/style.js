@@ -1,0 +1,115 @@
+const styles = {
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+  },
+  header: {
+    paddingHorizontal: 16,
+    paddingTop: 8,
+  },
+  backButton: {
+    padding: 8,
+  },
+  content: {
+    flex: 1,
+    paddingHorizontal: 24,
+    paddingTop: 16,
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: "bold",
+    marginBottom: 32,
+    color: "#111",
+  },
+  phoneContainer: {
+    flexDirection: "row",
+    marginBottom: 8,
+    borderWidth: 1,
+    borderColor: "#E8ECF4",
+    borderRadius: 12,
+    overflow: "hidden",
+    backgroundColor: "#F7F8F9",
+  },
+  countryCode: {
+    paddingHorizontal: 12,
+    justifyContent: "center",
+    borderRightWidth: 1,
+    borderRightColor: "#E8ECF4",
+  },
+  countryCodeText: {
+    fontSize: 16,
+    color: "#FF0000",
+    fontWeight: "500",
+  },
+  phoneInput: {
+    flex: 1,
+    padding: 16,
+    fontSize: 16,
+  },
+  dropdownButton: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    padding: 16,
+    backgroundColor: "#F7F8F9",
+    borderWidth: 1,
+    borderColor: "#E8ECF4",
+    borderRadius: 12,
+    marginBottom: 8,
+    marginTop: 8,
+  },
+  dropdownText: {
+    fontSize: 16,
+    color: "#6B7280",
+  },
+  input: {
+    backgroundColor: "#F7F8F9",
+    borderWidth: 1,
+    borderColor: "#E8ECF4",
+    borderRadius: 12,
+    padding: 16,
+    marginVertical: 8,
+    fontSize: 16,
+  },
+  licenseContainer: {
+    flexDirection: "row",
+    borderWidth: 1,
+    borderColor: "#E8ECF4",
+    borderRadius: 12,
+    overflow: "hidden",
+    marginVertical: 8,
+    backgroundColor: "#F7F8F9",
+  },
+  licenseInput: {
+    flex: 1,
+    padding: 16,
+    fontSize: 16,
+  },
+  clipboardButton: {
+    padding: 16,
+    justifyContent: "center",
+    alignItems: "center",
+    borderLeftWidth: 1,
+    borderLeftColor: "#E8ECF4",
+  },
+  errorText: {
+    color: "#FF0000",
+    fontSize: 12,
+    marginLeft: 4,
+    marginBottom: 8,
+  },
+  registerButton: {
+    backgroundColor: "#8364FF",
+    borderRadius: 12,
+    padding: 16,
+    alignItems: "center",
+    marginTop: 24,
+  },
+  registerButtonText: {
+    color: "#fff",
+    fontSize: 16,
+    fontWeight: "600",
+  },
+};
+
+export default styles;

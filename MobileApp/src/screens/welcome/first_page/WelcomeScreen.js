@@ -28,21 +28,21 @@ const WelcomeScreenfirstpage = ({ navigation }) => {
         <View style={styles.buttonContainer}>
           <TouchableOpacity
             style={styles.loginButton}
-            onPress={() => navigation.navigate("Login")}
+            onPress={() => navigation.navigate("Logindoctor")}
           >
             <Text style={styles.loginButtonText}>Continue as Doctor</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
             style={styles.registerButton}
-            onPress={() => navigation.navigate("Login")}
+            onPress={() => navigation.navigate("Loginpatient")}
           >
             <Text style={styles.registerButtonText}>Continue as Patient</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
             style={styles.guestButton}
-            onPress={() => navigation.navigate("Guest")}
+            onPress={() => navigation.navigate("HomeScreen")}
           >
             <Text style={styles.guestButtonText}>Continue as a Guest</Text>
           </TouchableOpacity>

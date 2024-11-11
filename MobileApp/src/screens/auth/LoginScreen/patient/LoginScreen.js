@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -8,27 +8,28 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
   Image,
-} from 'react-native';
-import styles from './style.js';
+} from "react-native";
+import styles from "./style.js";
 
-
-
-const LoginScreen = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+const LoginScreen = ({ navigation }) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+
+  const handleSocialLogin = (platform) => {
+    console.log(`${platform} login`);
+  };
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <SafeAreaView style={styles.container}>
         <View style={styles.header}>
-          <TouchableOpacity style={styles.backButton}>
-          </TouchableOpacity>
+          <TouchableOpacity style={styles.backButton}></TouchableOpacity>
         </View>
 
         <View style={styles.content}>
           <Text style={styles.title}>
-            Welcome back! Glad{'\n'}to see you, Again!
+            Welcome back! Glad{"\n"}to see you, Again!
           </Text>
 
           <View style={styles.inputContainer}>
@@ -51,7 +52,8 @@ const LoginScreen = () => {
               />
               <TouchableOpacity
                 style={styles.eyeIcon}
-                onPress={() => setShowPassword(!showPassword)}>
+                onPress={() => setShowPassword(!showPassword)}
+              >
                 <Text>👁️</Text>
               </TouchableOpacity>
             </View>
@@ -68,20 +70,43 @@ const LoginScreen = () => {
           <Text style={styles.orText}>Or Login with</Text>
 
           <View style={styles.socialButtonsContainer}>
-            <TouchableOpacity style={styles.socialButton}>
-              <Text>f</Text>
+            <TouchableOpacity
+              style={styles.socialButton}
+              onPress={() => handleSocialLogin("Facebook")}
+            >
+              <Image
+                source={{ uri: "https://www.facebook.com/favicon.ico" }}
+                style={styles.socialIcon}
+              />
             </TouchableOpacity>
-            <TouchableOpacity style={styles.socialButton}>
-              <Text>G</Text>
+
+            <TouchableOpacity
+              style={styles.socialButton}
+              onPress={() => handleSocialLogin("Google")}
+            >
+              <Image
+                source={{ uri: "https://www.google.com/favicon.ico" }}
+                style={styles.socialIcon}
+              />
             </TouchableOpacity>
-            <TouchableOpacity style={styles.socialButton}>
-              <Text>🍎</Text>
+
+            <TouchableOpacity
+              style={styles.socialButton}
+              onPress={() => handleSocialLogin("Apple")}
+            >
+              <Image
+                source={{ uri: "https://www.apple.com/favicon.ico" }}
+                style={styles.socialIcon}
+              />
             </TouchableOpacity>
           </View>
 
           <View style={styles.registerContainer}>
             <Text style={styles.registerText}>Don't have an account? </Text>
-            <TouchableOpacity>
+            <TouchableOpacity
+              style={styles.guestButton}
+              onPress={() => navigation.navigate("Registerpatinet")}
+            >
               <Text style={styles.registerLink}>Register Now</Text>
             </TouchableOpacity>
           </View>
