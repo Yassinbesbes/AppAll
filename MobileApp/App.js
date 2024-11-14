@@ -1,14 +1,18 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+// Import screens for stack navigation
 import WelcomeScreenfirstpage from "./src/screens/welcome/first_page/WelcomeScreen.js";
-import LoginScreendoctor from "./src/screens/auth/LoginScreen/doctor/LoginScreen.js"; // Add your LoginScreen component
-import LoginScreenpatient from "./src/screens/auth/LoginScreen/patient/LoginScreen.js"; // Add your LoginScreen component
-import HomeScreen from "./src/screens/HomeScreen/HomeScreen.js"; // Add your HomeScreen component
-import RegisterScreenpatient from "./src/screens/auth/SignupScreen/patient/SignUpScreen.js"; // Add your RegisterScreen component
-import RegisterScreendoctor1 from "./src/screens/auth/SignupScreen/doctor/screen1/SignUpScreen.js"; // Add your RegisterScreen component
-import RegisterScreendoctor2 from "./src/screens/auth/SignupScreen/doctor/screen2/SignUpScreen.js"; // Add your RegisterScreen component
+import LoginScreendoctor from "./src/screens/auth/LoginScreen/doctor/LoginScreen.js";
+import LoginScreenpatient from "./src/screens/auth/LoginScreen/patient/LoginScreen.js";
+import RegisterScreenpatient from "./src/screens/auth/SignupScreen/patient/SignUpScreen.js";
+import RegisterScreendoctor1 from "./src/screens/auth/SignupScreen/doctor/screen1/SignUpScreen.js";
+import RegisterScreendoctor2 from "./src/screens/auth/SignupScreen/doctor/screen2/SignUpScreen.js";
+import DoctorAppointment from "./src/components/DoctorAppointment.js";
+
+// Import the AppNavigator (with bottom tabs)
+import AppNavigator from "./src/navigation/AppNavigator.js";
 
 const Stack = createNativeStackNavigator();
 
@@ -16,24 +20,45 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Welcome1">
+        {/* Authentication Screens */}
         <Stack.Screen
           name="Welcome1"
           component={WelcomeScreenfirstpage}
           options={{ headerShown: false }}
         />
-
-        <Stack.Screen name="Logindoctor" component={LoginScreendoctor} />
-        <Stack.Screen name="Loginpatient" component={LoginScreenpatient} />
-
         <Stack.Screen
-          name="Registerpatinet"
+          name="Logindoctor"
+          component={LoginScreendoctor}
+        />
+        <Stack.Screen
+          name="Loginpatient"
+          component={LoginScreenpatient}
+        />
+        <Stack.Screen
+          name="Registerpatient"
           component={RegisterScreenpatient}
         />
-        <Stack.Screen name="Registerdoctor1" component={RegisterScreendoctor1} />
-        <Stack.Screen name="Registerdoctor2" component={RegisterScreendoctor2} />
+        <Stack.Screen
+          name="Registerdoctor1"
+          component={RegisterScreendoctor1}
+        />
+        <Stack.Screen
+          name="Registerdoctor2"
+          component={RegisterScreendoctor2}
+        />
 
+        {/* Main App (Bottom Tab Navigation) */}
+        <Stack.Screen
+          name="HomeScreen"
+          component={AppNavigator} // AppNavigator for bottom tab navigation
+          options={{ headerShown: false }} // Hide header for bottom tab navigation
+        />
 
-        <Stack.Screen name="HomeScreen" component={HomeScreen} />
+        {/* Doctor Appointment Screen */}
+        <Stack.Screen
+          name="DoctorAppointment"
+          component={DoctorAppointment}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

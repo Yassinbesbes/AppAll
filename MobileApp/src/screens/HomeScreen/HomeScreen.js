@@ -5,56 +5,17 @@ import {
   TextInput,
   ScrollView,
   TouchableOpacity,
-  StyleSheet,
   Image,
   SafeAreaView,
 } from "react-native";
 import Icon from "react-native-vector-icons/MaterialIcons";
+import { useNavigation } from "@react-navigation/native"; // Import the navigation hook
 import styles from "./style.js";
+import { categories } from "../../../data/categories.js";
+import { doctors } from "../../../data/doctors.js";
 
 const HomeScreen = () => {
-  const categories = [
-    { id: 1, name: "All", icon: "🟢" },
-    { id: 2, name: "Cardiology", icon: "❤️" },
-    { id: 3, name: "Medicine", icon: "💊" },
-    { id: 4, name: "General", icon: "🏥" },
-  ];
-
-  const doctors = [
-    {
-      id: 1,
-      name: "Dr. Maria Waston",
-      specialty: "Heart Surgeon, London, England",
-      image: require("../../../assets/icon.png"),
-      rating: 4.8,
-      isOnline: true,
-    },
-    {
-      id: 2,
-      name: "Dr. Stevi Jessi",
-      specialty: "General Dentist",
-      image: require("../../../assets/icon.png"), // You'll need to add these images
-      rating: 4.8,
-      isOnline: true,
-    },
-    {
-      id: 3,
-      name: "Dr. Stevi Jessi",
-      specialty: "General Dentist",
-      image: require("../../../assets/icon.png"), // You'll need to add these images
-      rating: 4.8,
-      isOnline: true,
-    },
-    {
-      id: 4,
-      name: "Dr. Stevi Jessi",
-      specialty: "General Dentist",
-      image: require("../../../assets/icon.png"), // You'll need to add these images
-      rating: 4.8,
-      isOnline: true,
-    },
-    
-  ];
+  const navigation = useNavigation(); // Get the navigation function
 
   return (
     <SafeAreaView style={styles.container}>
@@ -67,10 +28,6 @@ const HomeScreen = () => {
             <View style={styles.menuLine} />
           </View>
         </TouchableOpacity>
-        {/* <Image
-          source={require('../../../assets/icon.png')} // Add your profile image
-          style={styles.profileImage}
-        /> */}
         {/* Search Bar */}
         <View style={styles.searchContainer}>
           <Icon name="search" size={20} color="#A0A0A0" />
@@ -88,7 +45,7 @@ const HomeScreen = () => {
         <ScrollView
           horizontal
           showsHorizontalScrollIndicator={false}
-          style={styles.categoriesScroll}
+          contentContainerStyle={styles.categoriesScroll}
         >
           {categories.map((category) => (
             <TouchableOpacity key={category.id} style={styles.categoryItem}>
@@ -102,7 +59,11 @@ const HomeScreen = () => {
       {/* Doctors List */}
       <ScrollView style={styles.doctorsList}>
         {doctors.map((doctor) => (
-          <TouchableOpacity key={doctor.id} style={styles.doctorCard}>
+          <TouchableOpacity
+            key={doctor.id}
+            style={styles.doctorCard}
+            onPress={() => navigation.navigate("DoctorAppointment", { doctorId: doctor.id })} // Navigate to DoctorAppointment
+          >
             <View style={styles.doctorInfo}>
               <View>
                 <Image source={doctor.image} style={styles.doctorImage} />

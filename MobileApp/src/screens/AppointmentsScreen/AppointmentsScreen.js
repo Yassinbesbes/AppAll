@@ -8,6 +8,7 @@ const AppointmentsScreen = () => (
 );
 
 const styles = StyleSheet.create({
+  
   container: {
     flex: 1,
     justifyContent: 'center',
@@ -21,3 +22,10 @@ const styles = StyleSheet.create({
 });
 
 export default AppointmentsScreen;
+
+
+
+
+
+
+
