@@ -10,8 +10,8 @@ export default StyleSheet.create({
     backgroundColor: "#B28CFF",
     borderBottomLeftRadius: 30,
     borderBottomRightRadius: 30,
+    paddingTop: 50,
   },
-  menuButton: {},
   menuLine: {
     width: 24,
     height: 2,
@@ -25,6 +25,7 @@ export default StyleSheet.create({
     borderWidth: 2,
     borderColor: "#FFFFFF",
   },
+
   searchContainer: {
     flexDirection: "row",
     alignItems: "center",
@@ -73,111 +74,5 @@ export default StyleSheet.create({
     fontSize: 14,
     color: "#666666",
   },
-  doctorsList: {
-    flex: 1,
-    padding: 20,
-  },
-  doctorCard: {
-    backgroundColor: "#FFFFFF",
-    borderRadius: 15,
-    padding: 15,
-    marginBottom: 15,
-  },
-  doctorInfo: {
-    flexDirection: "row",
-    marginBottom: 15,
-  },
-  doctorImage: {
-    width: 60,
-    height: 60,
-    borderRadius: 30,
-  },
-  onlineIndicator: {
-    position: "absolute",
-    width: 12,
-    height: 12,
-    backgroundColor: "#4CAF50",
-    borderRadius: 6,
-    borderWidth: 2,
-    borderColor: "#FFFFFF",
-    top: 0,
-    right: 0,
-  },
-  doctorDetails: {
-    marginLeft: 15,
-    flex: 1,
-  },
-  doctorName: {
-    fontSize: 18,
-    fontWeight: "bold",
-    marginBottom: 4,
-  },
-  doctorSpecialty: {
-    fontSize: 14,
-    color: "#666666",
-    marginBottom: 4,
-  },
-  ratingContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    marginTop:8,
-  },
-  ratingIcon: {
-    fontSize: 16,
-    marginRight: 4,
-  },
-  ratingText: {
-    fontSize: 14,
-    color: "#666666",
-  },
-  appointmentButton: {
-    backgroundColor: "#F0EDFF",
-    padding: 10,
-    marginTop: 5,
 
-    borderRadius: 15,
-    alignItems: "center",
-  },
-  appointmentButtonText: {
-    color: "#7B61FF",
-    fontWeight: "600",
-  },
-  bottomNav: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    alignItems: "center",
-    backgroundColor: "#FFFFFF",
-    paddingVertical: 10,
-    borderTopWidth: 1,
-    borderTopColor: "#E8ECF4",
-  },
-  navItem: {
-    padding: 10,
-    position: "relative",
-  },
-  addButton: {
-    backgroundColor: "#7B61FF",
-    width: 50,
-    height: 50,
-    borderRadius: 25,
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: -25,
-  },
-  badge: {
-    position: "absolute",
-    top: 5,
-    right: 5,
-    backgroundColor: "#FF4444",
-    borderRadius: 10,
-    minWidth: 20,
-    height: 20,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  badgeText: {
-    color: "#FFFFFF",
-    fontSize: 12,
-    fontWeight: "bold",
-  },
 });

@@ -1,16 +1,16 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import Ionicons from "react-native-vector-icons/Ionicons";
 
-// Import your screens for the bottom tab navigator
 import HomeScreen from "../screens/HomeScreen/HomeScreen.js";
-import MessagesScreen from "../screens/MessagesScreen/MessageScreen.js";
-import AppointmentsScreen from '../screens/AppointmentsScreen/AppointmentsScreen.js';
-import ArticlesScreen from '../screens/ArticlesScreen/ArticlesScreen.js';
+import SearchScreen from "../screens/SearchScreen/SearchScreen.js";
+import ArticlesScreen from "../screens/ArticlesScreen/ArticlesScreen.js";
+import ProfileScreen from "../screens/ProfileScreen/ProfileScreen.js";
 
 const Tab = createBottomTabNavigator();
+ const AppNavigator = () => {
 
-const AppNavigator = () => {
+
   return (
     <Tab.Navigator
       screenOptions={{
@@ -19,39 +19,50 @@ const AppNavigator = () => {
           height: 60,
           paddingBottom: 5,
           paddingTop: 5,
-          backgroundColor: '#FFFFFF',
+          backgroundColor: "#FFFFFF",
           borderTopWidth: 1,
-          borderTopColor: '#E8ECF4',
+          borderTopColor: "#E8ECF4",
         },
-        tabBarActiveTintColor: '#7B61FF',
-        tabBarInactiveTintColor: '#6B7280',
-      }}>
+        tabBarActiveTintColor: "#7B61FF",
+        tabBarInactiveTintColor: "#6B7280",
+      }}
+    >
       <Tab.Screen
         name="Home"
         component={HomeScreen}
         options={{
-          tabBarIcon: ({ color }) => <Ionicons name="home" size={24} color={color} />,
-        }}
-      />
-      <Tab.Screen
-        name="Messages"
-        component={MessagesScreen}
-        options={{
-          tabBarIcon: ({ color }) => <Ionicons name="chatbubbles" size={24} color={color} />,
-        }}
-      />
-      <Tab.Screen
-        name="Appointments"
-        component={AppointmentsScreen}
-        options={{
-          tabBarIcon: ({ color }) => <Ionicons name="calendar" size={24} color={color} />,
+          tabBarIcon: ({ color }) => (
+            <Ionicons name="home" size={24} color={color} />
+          ),
         }}
       />
       <Tab.Screen
         name="Articles"
         component={ArticlesScreen}
         options={{
-          tabBarIcon: ({ color }) => <Ionicons name="newspaper" size={24} color={color} />,
+          tabBarIcon: ({ color }) => (
+            <Ionicons name="newspaper" size={24} color={color} />
+          ),
+        }}
+      />
+
+      
+      <Tab.Screen
+        name="Search"
+        component={SearchScreen}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <Ionicons name="search" size={24} color={color} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Profile"
+        component={ProfileScreen}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <Ionicons name="person" size={24} color={color} />
+          ),
         }}
       />
     </Tab.Navigator>

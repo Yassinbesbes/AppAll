@@ -1,5 +1,6 @@
 {
   "expo": {
+    "newArchEnabled": true,
     "name": "myproject",
     "slug": "myproject",
     "version": "1.0.0",
