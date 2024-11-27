@@ -3,7 +3,7 @@ import { View, Text, SafeAreaView, Image, StyleSheet, ScrollView, TouchableOpaci
 import { FontAwesome } from "@expo/vector-icons"; // Import FontAwesome for icons
 
 const ArticleDetailsScreen = ({ route }) => {
-  const { article } = route.params; // Receive the article data from navigation
+  const { article } = route.params; 
 
   return (
     <SafeAreaView style={styles.container}>

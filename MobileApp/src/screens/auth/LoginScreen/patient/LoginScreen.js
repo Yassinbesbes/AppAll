@@ -8,13 +8,53 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
   Image,
+  ActivityIndicator,
 } from "react-native";
+import Ionicons from "react-native-vector-icons/Ionicons";
 import styles from "./style.js";
 
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null); // To store error messages
+
+  const handleLogin = async () => {
+    if (!email || !password) {
+      setError("Please enter both email and password.");
+      return;
+    }
+
+    setLoading(true);
+    setError(null); // Clear any previous error
+
+    try {
+      const response = await fetch("http://192.168.1.12:9000/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        console.log("Login successful:", data);
+
+        // Navigate to the main screen
+        navigation.navigate("HomeScreen");
+      } else {
+        setError(data.message || "Login failed. Please try again.");
+      }
+    } catch (err) {
+      console.error("Error during login:", err);
+      setError("Something went wrong. Please try again later.");
+    } finally {
+      setLoading(false); // Set loading to false when the request is complete
+    }
+  };
 
   const handleSocialLogin = (platform) => {
     console.log(`${platform} login`);
@@ -23,14 +63,15 @@ const LoginScreen = ({ navigation }) => {
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <SafeAreaView style={styles.container}>
-        <View style={styles.header}>
-          <TouchableOpacity style={styles.backButton}></TouchableOpacity>
-        </View>
+        <View style={styles.header}></View>
 
         <View style={styles.content}>
           <Text style={styles.title}>
             Welcome back! Glad{"\n"}to see you, Again!
           </Text>
+
+          {/* Display error message if any */}
+          {error && <Text style={styles.errorText}>{error}</Text>}
 
           <View style={styles.inputContainer}>
             <TextInput
@@ -54,7 +95,11 @@ const LoginScreen = ({ navigation }) => {
                 style={styles.eyeIcon}
                 onPress={() => setShowPassword(!showPassword)}
               >
-                <Text>👁️</Text>
+                <Ionicons
+                  name={showPassword ? "eye" : "eye-off"}
+                  size={24}
+                  color="gray"
+                />
               </TouchableOpacity>
             </View>
 
@@ -63,8 +108,16 @@ const LoginScreen = ({ navigation }) => {
             </TouchableOpacity>
           </View>
 
-          <TouchableOpacity style={styles.loginButton}>
-            <Text style={styles.loginButtonText}>Login</Text>
+          <TouchableOpacity
+            style={styles.loginButton}
+            onPress={handleLogin} // Call the handleLogin function on press
+            disabled={loading} // Disable the button while loading
+          >
+            {loading ? (
+              <ActivityIndicator size="small" color="#fff" /> // Show loading spinner
+            ) : (
+              <Text style={styles.loginButtonText}>Login</Text>
+            )}
           </TouchableOpacity>
 
           <Text style={styles.orText}>Or Login with</Text>

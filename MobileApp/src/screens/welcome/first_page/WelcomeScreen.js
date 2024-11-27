@@ -15,7 +15,7 @@ const WelcomeScreenfirstpage = ({ navigation }) => {
       {/* Logo/Brand Section */}
       <View style={styles.brandContainer}>
         <Image
-          source={require("../../../../assets/icon.png")}
+          source={require("../../../../assets/Logo.jpg")}
           style={styles.logo}
         />
       </View>

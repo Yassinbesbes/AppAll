@@ -9,7 +9,7 @@ const patients = [
     accountCreated: "2023-01-15",
     isActive: false,
     gender: "female",
-    // profileImage: "https://randomuser.me/api/portraits/women/1.jpg",
+    profileImage: "https://randomuser.me/api/portraits/women/1.jpg",
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ const patients = [
     accountCreated: "2022-10-08",
     isActive: false,
     gender: "male",
-    // profileImage: "https://randomuser.me/api/portraits/men/2.jpg",
+    profileImage: "https://randomuser.me/api/portraits/men/2.jpg",
   },
   {
     id: 3,
@@ -33,7 +33,7 @@ const patients = [
     accountCreated: "2023-05-05",
     isActive: false,
     gender: "female",
-    // profileImage: "https://randomuser.me/api/portraits/women/3.jpg",
+    profileImage: "https://randomuser.me/api/portraits/women/3.jpg",
   },
   {
     id: 4,
@@ -45,7 +45,7 @@ const patients = [
     accountCreated: "2021-12-12",
     isActive: false,
     gender: "male",
-    // profileImage: "https://randomuser.me/api/portraits/men/4.jpg",
+    profileImage: "https://randomuser.me/api/portraits/men/4.jpg",
   },
   {
     id: 5,
@@ -57,7 +57,7 @@ const patients = [
     accountCreated: "2023-03-20",
     isActive: true,
     gender: "female",
-    // profileImage: "https://randomuser.me/api/portraits/women/5.jpg",
+    profileImage: "https://randomuser.me/api/portraits/women/5.jpg",
   },
   {
     id: 6,
@@ -69,7 +69,7 @@ const patients = [
     accountCreated: "2022-08-28",
     isActive: true,
     gender: "male",
-    // profileImage: "https://randomuser.me/api/portraits/men/6.jpg",
+    profileImage: "https://randomuser.me/api/portraits/men/6.jpg",
   },
   {
     id: 7,
@@ -81,7 +81,7 @@ const patients = [
     accountCreated: "2023-09-10",
     isActive: true,
     gender: "female",
-    // profileImage: "https://randomuser.me/api/portraits/women/7.jpg",
+    profileImage: "https://randomuser.me/api/portraits/women/7.jpg",
   },
   {
     id: 8,
@@ -93,7 +93,7 @@ const patients = [
     accountCreated: "2021-06-18",
     isActive: true,
     gender: "male",
-    // profileImage: "https://randomuser.me/api/portraits/men/8.jpg",
+    profileImage: "https://randomuser.me/api/portraits/men/8.jpg",
   },
 ];
 

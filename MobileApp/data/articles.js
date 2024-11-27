@@ -15,7 +15,7 @@ export const articles = [
   {
     id: 2,
     title: "The Importance of Regular Health Checkups",
-    description: `Discover why scheduling regular health checkups is crucial for maintaining your overall wellbeing. 
+    description: `Discover why scheduling regular health checkups is crucial for maintaining your overall wellbeing.  
     Learn how early detection of illnesses can save lives and reduce long-term medical costs. 
     Understand the tests and screenings recommended for your age and health history. 
     Explore the connection between routine checkups and disease prevention. 
