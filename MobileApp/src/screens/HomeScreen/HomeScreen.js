@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -8,50 +8,16 @@ import {
   SafeAreaView,
 } from "react-native";
 import Icon from "react-native-vector-icons/MaterialIcons";
-import { useNavigation } from "@react-navigation/native"; // Import the navigation hook
-import axios from "axios"; // Import axios for making HTTP requests
+import { useNavigation } from "@react-navigation/native";
 import styles from "./style.js";
-import NotificationSystem from "../../components/NotificationSystem/NotificationSystem.js"; // Import NotificationSystem
-import DoctorCard from "../../components/DoctorCard/DoctorCard.js"; // Import DoctorCard
+import NotificationSystem from "../../components/NotificationSystem/NotificationSystem.js";
+import DoctorCard from "../../components/DoctorCard/DoctorCard.js";
+import { categories } from "../../../data/categories.js";
+import { doctors } from "../../../data/doctors.js";
 
 const HomeScreen = () => {
   const navigation = useNavigation(); // Get the navigation function
-  const [searchQuery, setSearchQuery] = useState("");
-  const [doctors, setDoctors] = useState([]); // State to store doctors data
-  const [categories, setCategories] = useState([]); // State to store categories
-  const [loading, setLoading] = useState(true); // Loading state
-  const [error, setError] = useState(""); // Error state
-
-  // Fetch doctors and categories data from the API
-  useEffect(() => {
-    // Fetch doctors data
-    axios
-      .get("http://192.168.1.12:9000/api/doctors") // API URL for doctors
-      .then((response) => {
-        setDoctors(response.data); // Set doctors data
-        setLoading(false); // Set loading to false
-      })
-      .catch((err) => {
-        setError("Error fetching doctors data");
-        setLoading(false);
-      });
-
-    // Fetch categories data
-    axios
-      .get("http://192.168.1.12:9000/api/categories") // API URL for categories
-      .then((response) => {
-        setCategories(response.data); // Set categories data
-        setLoading(false); // Set loading to false
-      })
-      .catch((err) => {
-        setError("Error fetching categories data");
-        setLoading(false);
-      });
-  }, []); // Empty dependency array to fetch data only on mount
-
-  const handleSearchNavigate = () => {
-    navigation.navigate("SearchScreen", { query: searchQuery }); // Pass the query
-  };
+  const [searchQuery, setSearchQuery] = useState(""); // State for the search input
 
   const handleAppointmentPress = (doctorId) => {
     navigation.navigate("DoctorAppointment", {
@@ -59,13 +25,9 @@ const HomeScreen = () => {
     });
   };
 
-  if (loading) {
-    return <Text>Loading...</Text>;
-  }
-
-  if (error) {
-    return <Text>{error}</Text>;
-  }
+  const handleSearchNavigate = () => {
+    navigation.navigate("SearchScreen", { query: searchQuery });
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -123,7 +85,7 @@ const HomeScreen = () => {
         {doctors.map((doctor) => (
           <DoctorCard
             key={doctor.id}
-            doctor={doctor} // Passing dynamic doctor data
+            doctor={doctor} // Passing static doctor data
             onAppointmentPress={handleAppointmentPress}
           />
         ))}

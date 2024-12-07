@@ -6,6 +6,8 @@ import {
   TouchableOpacity,
   SafeAreaView,
   Image,
+  ActivityIndicator,
+  Alert,
 } from "react-native";
 import styles from "./style"; // Importing styles from the new file
 
@@ -18,6 +20,7 @@ const SignUpScreenpatient = ({ navigation }) => {
   });
 
   const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
 
   const validateForm = () => {
     let newErrors = {};
@@ -47,10 +50,38 @@ const SignUpScreenpatient = ({ navigation }) => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleRegister = () => {
-    if (validateForm()) {
-      // Handle registration logic here
-      console.log("Form submitted:", formData);
+  const handleRegister = async () => {
+    if (!validateForm()) return;
+
+    setLoading(true);
+
+    try {
+      const response = await fetch("http://192.168.1.12:9000/api/patients", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username: formData.username,
+          email: formData.email,
+          password: formData.password,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        Alert.alert("Success", "Account created successfully!", [
+          { text: "OK", onPress: () => navigation.navigate("Loginpatient") },
+        ]);
+      } else {
+        setErrors({ general: data.message || "Registration failed." });
+      }
+    } catch (error) {
+      console.error("Error during registration:", error);
+      setErrors({ general: "Something went wrong. Please try again later." });
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -60,14 +91,12 @@ const SignUpScreenpatient = ({ navigation }) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      {/* <TouchableOpacity style={styles.backButton}>
-        <Text style={styles.backButtonText}>{"<"}</Text>
-      </TouchableOpacity> */}
-
       <View style={styles.content}>
         <Text style={styles.title}>
-          Hello! Register As Patinet to get started
+          Hello! Register As Patient to get started
         </Text>
+
+        {errors.general && <Text style={styles.errorText}>{errors.general}</Text>}
 
         <View style={styles.inputContainer}>
           <TextInput
@@ -121,8 +150,13 @@ const SignUpScreenpatient = ({ navigation }) => {
         <TouchableOpacity
           style={styles.registerButton}
           onPress={handleRegister}
+          disabled={loading}
         >
-          <Text style={styles.registerButtonText}>Register</Text>
+          {loading ? (
+            <ActivityIndicator size="small" color="#fff" />
+          ) : (
+            <Text style={styles.registerButtonText}>Register</Text>
+          )}
         </TouchableOpacity>
 
         <Text style={styles.orText}>Or Register with</Text>

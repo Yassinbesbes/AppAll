@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import {
   View,
   Text,
@@ -8,49 +8,28 @@ import {
   Image,
 } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
-import styles from "./styles"; // Import external styles
 import { useNavigation } from "@react-navigation/native";
+import styles from "./styles"; // Import external styles
+
+// Importing the articles and authors data
+import { articles, authors } from "../../../data/articles.js"; // Assuming articles.js contains the articles data
+import { categories } from "../../../data/categories.js"; // Import categories data
 
 const ArticlesScreen = () => {
-  const [articles, setArticles] = useState([]);
-  const [categories, setCategories] = useState([]);
+  // Helper function to get the author's name based on their ID
+  const getAuthorName = (authorId) => {
+    const author = authors.find((a) => a.id === authorId);
+    return author ? author.name : "Unknown Author";
+  };
 
-  // Fetch articles from the articles API
-  useEffect(() => {
-    const fetchArticles = async () => {
-      try {
-        const response = await fetch("http://192.168.1.12:9000/api/articles");
-        const data = await response.json();
-        setArticles(data); // Set the articles data into state
-      } catch (error) {
-        console.error("Error fetching articles:", error);
-      }
-    };
-
-    fetchArticles();
-  }, []);
-
-  // Fetch categories from the categories API
-  useEffect(() => {
-    const fetchCategories = async () => {
-      try {
-        const response = await fetch("http://192.168.1.12:9000/api/categories");
-        const data = await response.json();
-        setCategories(data); // Set the categories data into state
-      } catch (error) {
-        console.error("Error fetching categories:", error);
-      }
-    };
-
-    fetchCategories();
-  }, []);
-
+  // CategoryPill component for rendering category buttons
   const CategoryPill = ({ label }) => (
     <TouchableOpacity style={styles.categoryPill}>
       <Text style={styles.categoryText}>{label}</Text>
     </TouchableOpacity>
   );
 
+  // ArticleCard component for rendering individual article cards
   const ArticleCard = ({ article }) => {
     const navigation = useNavigation();
 
@@ -59,14 +38,16 @@ const ArticlesScreen = () => {
         style={styles.articleCard}
         onPress={() => navigation.navigate("ArticleDetails", { article })}
       >
-        <Image source={{ uri: article.imageUrl }} style={styles.articleImage} />
+        <Image source={article.image} style={styles.articleImage} />
         <View style={styles.articleContent}>
           <Text style={styles.articleTitle} numberOfLines={2}>
             {article.title}
           </Text>
           <View style={styles.articleFooter}>
             <FontAwesome name="user" size={14} color="#666" />
-            <Text style={styles.authorText}>{article.doctorName}</Text>
+            <Text style={styles.authorText}>
+              {getAuthorName(article.authorId)} {/* Corrected property */}
+            </Text>
           </View>
         </View>
       </TouchableOpacity>
@@ -81,7 +62,7 @@ const ArticlesScreen = () => {
         {/* Popular Card */}
         <View style={styles.card}>
           <Image
-            source={require("../../../assets/articles/AllergicReactions.jpg")} // Correct way to use local image
+            source={require("../../../assets/articles/AllergicReactions.jpg")} // Correct way to use a local image
             style={styles.image}
           />
           <View style={styles.overlay}>

@@ -18,7 +18,7 @@ const LoginScreen = ({ navigation }) => {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null); // To store error messages
+  const [error, setError] = useState(null);
 
   const handleLogin = async () => {
     if (!email || !password) {
@@ -30,7 +30,7 @@ const LoginScreen = ({ navigation }) => {
     setError(null); // Clear any previous error
 
     try {
-      const response = await fetch("http://192.168.1.12:9000/api/auth/login", {
+      const response = await fetch("http://172.16.135.53:9000/api/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -43,8 +43,8 @@ const LoginScreen = ({ navigation }) => {
       if (response.ok) {
         console.log("Login successful:", data);
 
-        // Navigate to the main screen
-        navigation.navigate("HomeScreen");
+        // Pass user data to HomeScreen
+        navigation.navigate("HomeScreen", { user: data.user }); // Pass user data to the next screen
       } else {
         setError(data.message || "Login failed. Please try again.");
       }

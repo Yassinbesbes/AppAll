@@ -1,16 +1,9 @@
 import React from "react";
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  Image,
-  SafeAreaView,
-  Switch,
-} from "react-native";
+import { View, Text, TouchableOpacity, Image, SafeAreaView, Switch } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import styles from "./styles"; // Import the styles
 
-const SettingsScreen = () => {
+const SettingsScreen = ({ user }) => {
   const [notificationsEnabled, setNotificationsEnabled] = React.useState(false);
   const [darkModeEnabled, setDarkModeEnabled] = React.useState(false);
 
@@ -60,18 +53,22 @@ const SettingsScreen = () => {
       <TouchableOpacity style={styles.profileSection}>
         <Image
           style={styles.profileImage}
-          source={{ uri: "https://via.placeholder.com/150" }}
+          source={{ uri: user?.profileImage || "https://via.placeholder.com/150" }} // Dynamically set image or placeholder
         />
         <View style={styles.profileInfo}>
-          <Text style={styles.profileName}>Ziad Hamdy</Text>
-          <Text style={styles.profileEmail}>abc.hamdy046@gmail.com</Text>
+          <Text style={styles.profileName}>{user?.name || "User Name"}</Text>
+          <Text style={styles.profileEmail}>{user?.email || "User Email"}</Text>
         </View>
         <Ionicons name="chevron-forward" size={20} color="#C7C7CC" />
       </TouchableOpacity>
 
       {/* Settings Groups */}
       <View style={styles.settingsGroup}>
-        <SettingsItem title="Location" value="Alex, Egypt" onPress={() => {}} />
+        <SettingsItem
+          title="Location"
+          value={user?.location || "Location not available"} // Dynamically set location
+          onPress={() => {}}
+        />
         <SettingsItem
           title="Notifications"
           showToggle={true}
