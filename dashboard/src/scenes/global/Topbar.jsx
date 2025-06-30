@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import { useContext, useState } from "react";
 import Badge from "@mui/material/Badge";
-import { ColorModeContext, tokens } from "../../theme";
+import { ColorModeContext, tokens } from "../../theme.js";
 import SearchIcon from "@mui/icons-material/Search";
 import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
 import adminDetails from "../../data/admin.js"; // Importing admin details

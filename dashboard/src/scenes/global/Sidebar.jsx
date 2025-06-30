@@ -108,7 +108,7 @@ const Sidebar = () => {
               setSelected={setSelected}
             />
             <Item
-              title="Articles"
+              title="Hospitali"
               to="/Articles"
               icon={<ArticleRoundedIcon/>}
               selected={selected}
